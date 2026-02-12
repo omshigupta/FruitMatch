@@ -21,3 +21,8 @@ I used GitHub for version control to track the evolution of the game's logic and
 - `style.css` - Custom styling with a focus on smooth transitions and "shake" animations for errors.
 - `script.js` - The brain of the game, containing the BFS logic and audio management.
 - `assets` - The directory where I've organized the fruit icons and default profile images used throughout the game.
+
+## Desktop Preview
+![Desktop View](https://github.com/omshigupta/FruitMatch/blob/main/Desktop-View-Fruit-Match.png)
+
+
