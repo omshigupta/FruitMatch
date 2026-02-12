@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruit Match Game - Futura Edition</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <header>
+        <h1 id="main-title"><span>Fruit Match</span> by Omshi</h1> </header>
+
+    <div class="profile">
+        <img src="assets/icons/default-dp.png" alt="User DP" id="user-dp"/>
+        <input type="file" id="dp-input" accept="image/*" hidden />
+        <button id="update-dp" class="update-btn futuristic-btn">Update DP</button>
+        <div id="user-details">
+            <input type="text" placeholder="Your name" id="user-name" />
+            <button id="update-name" class="update-btn futuristic-btn">Update Name</button>
+        </div>
+    </div>
+
+    <main>
+      <div class="game-info">
+          <div id="progress-container">
+              <div id="progress"></div>
+              <span id="progress-text">Completed: 0%</span>
+          </div>
+          <div id="encouragement-message"></div>
+          <div id="timer">100</div> </div>
+
+      <div class="game-board" id="game-board"></div>
+    </main>
+
+    <div class="result-modal" id="result-modal">
+      <div id="result-message"></div>
+      <div id="time-taken"></div>
+      <div id="final-user-dp"></div>
+      <button onclick="location.reload()" class="futuristic-btn play-again-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

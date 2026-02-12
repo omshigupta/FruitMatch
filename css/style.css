@@ -1,0 +1,430 @@
+/* --- Import Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- Variables --- */
+:root {
+  --dark-bg: #1a1a2e;        /* Dark blue/purple */
+  --dark-bg-secondary: #24243e; /* Slightly lighter dark */
+  --dark-ui-element: #3a3a5e; /* Darker element background */
+  --text-light: #f0f0f5;      /* Light text */
+  --text-medium: #a0a0c0;     /* Medium emphasis text */
+  --accent-cyan: #00f0ff;     /* Bright Cyan */
+  --accent-magenta: #ff00ff;   /* Bright Magenta */
+  --accent-green: #00ff8a;     /* Bright Green */
+  --accent-red: #ff4d8a;       /* Bright Red/Pink */
+
+  --font-title: 'Orbitron', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --glow-cyan: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan);
+  --glow-magenta: 0 0 5px var(--accent-magenta), 0 0 10px var(--accent-magenta);
+  --glow-green: 0 0 5px var(--accent-green), 0 0 10px var(--accent-green);
+  --glow-red: 0 0 5px var(--accent-red), 0 0 10px var(--accent-red);
+}
+
+/* --- Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-weight: 300; /* Default light weight */
+}
+
+body {
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px; /* Subtle grid background */
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2vh 2vw; /* Slightly increased padding */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* --- Title --- */
+header {
+  padding-bottom: 1.5vh;
+  text-align: center;
+}
+
+#main-title {
+  font-family: var(--font-title);
+  font-size: clamp(28px, 5vmin, 55px);
+  font-weight: 700;
+  color: var(--text-light);
+  text-shadow: var(--glow-cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Optional: Dual color title */
+#main-title span {
+    color: var(--accent-cyan);
+    text-shadow: none;
+} 
+
+
+/* --- User Profile --- */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  margin-bottom: 2vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1.5vh 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background */
+  border-radius: 8px;
+  border: 1px solid rgba(0, 240, 255, 0.2); /* Faint cyan border */
+}
+
+.profile img {
+  width: clamp(60px, 9vmin, 100px);
+  height: clamp(60px, 9vmin, 100px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-cyan); /* Cyan border */
+  box-shadow: var(--glow-cyan); /* Glow effect */
+  padding: 2px; /* Space between image and border */
+  background-color: var(--dark-bg-secondary);
+}
+
+#user-details input {
+  font-size: clamp(13px, 2vmin, 17px);
+  padding: 1vh 1.5vw;
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--accent-cyan);
+  border-radius: 4px;
+  color: var(--text-light);
+  min-width: 180px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+#user-details input::placeholder {
+    color: var(--text-medium);
+    opacity: 0.7;
+}
+#user-details input:focus {
+    box-shadow: var(--glow-cyan);
+}
+
+/* --- Futuristic Button --- */
+.futuristic-btn {
+    padding: 1vh 2vw;
+    font-size: clamp(13px, 2.2vmin, 18px);
+    font-weight: 400;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta));
+    color: var(--dark-bg); /* Dark text on bright button */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.futuristic-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), var(--glow-magenta);
+}
+.futuristic-btn:active {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Updated button state */
+.update-btn.updated {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+    color: var(--dark-bg);
+    box-shadow: var(--glow-green);
+}
+.update-btn.updated::after { /* Keep FontAwesome checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    content: '\f00c';
+    margin-left: 0.8vw;
+    color: var(--dark-bg);
+}
+
+/* --- Main Section --- */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* --- Game Info Section --- */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vh;
+    padding: 1vh 0;
+    position: relative;
+    min-height: clamp(45px, 8vmin, 70px);
+
+    /* Alignment constraints from previous step */
+    width: 95%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Progress Bar */
+#progress-container {
+    width: 40%;
+    height: clamp(25px, 4vmin, 30px);
+    background-color: var(--dark-ui-element); /* Darker container */
+    border-radius: 15px; /* Sleeker radius */
+    overflow: hidden;
+    position: relative;
+    min-width: 100px;
+    order: 1;
+    border: 1px solid rgba(0, 240, 255, 0.3); /* Faint border */
+}
+
+#progress {
+    position: absolute; top: 0; left: 0;
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green)); /* Gradient fill */
+    border-radius: 15px;
+    transition: width 0.4s ease;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); /* Inner shadow for depth */
+}
+
+#progress-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    
+    color: var(--text-light);
+    text-shadow: var(--glow-cyan);
+    font-size: clamp(11px, 1.8vmin, 15px);
+    font-weight: 600; /* Bolder */
+    white-space: nowrap;
+    z-index: 1;
+   /* text-shadow: 0 0 2px rgba(255,255,255,0.5); */  /* Slight white glow for contrast */
+}
+
+/* Timer */
+#timer {
+  width: clamp(55px, 10vmin, 85px);
+  height: clamp(55px, 10vmin, 85px);
+  border-radius: 50%;
+  background-color: var(--dark-ui-element); /* Match progress container */
+  color: var(--text-light);
+  display: flex; justify-content: center; align-items: center;
+  font-size: clamp(20px, 3.5vmin, 32px);
+  font-weight: 600; /* Bolder */
+  order: 3;
+  border: 2px solid var(--accent-cyan); /* Cyan border */
+  box-shadow: var(--glow-cyan); /* Cyan glow */
+  text-shadow: var(--glow-cyan); /* Glow on text too */
+}
+
+/* Encouragement Message */
+#encouragement-message {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; max-width: 50%;
+    font-size: clamp(18px, 3.2vmin, 26px); /* Slightly larger */
+    font-weight: 600;
+    text-align: center;
+    color: var(--accent-green); /* Use bright green */
+    /* background-color: rgba(26, 26, 46, 0.8); Slightly dark bg */
+    padding: 0.5vh 1vw;
+    border-radius: 5px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: var(--glow-green); /* Green glow */
+}
+#encouragement-message.show { opacity: 1; }
+
+
+/* --- Main Game Board --- */
+.game-board {
+  flex: 1; display: grid;
+  grid-template-columns: repeat(6, minmax(45px, 1fr)); /* Slightly larger min */
+  grid-template-rows: repeat(6, minmax(45px, 1fr));
+  gap: 1vmin; /* Slightly larger gap */
+  background-color: rgba(0, 0, 0, 0.2); /* Darker transparent background */
+  padding: 1.5vmin;
+  border-radius: 10px;
+  position: relative;
+  width: 95%; max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden; min-height: 0;
+  border: 1px solid rgba(0, 240, 255, 0.3); /* Faint cyan border */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+}
+
+.cell {
+  background-color: var(--dark-ui-element);
+  border: 1px solid rgba(0, 240, 255, 0.4); /* Cyan border for cells */
+  display: flex; justify-content: center; align-items: center;
+  border-radius: 6px; /* Slightly rounder */
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s, visibility 0.3s;
+  position: relative;
+  width: 85%; height: 90%;
+  overflow: hidden;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4); /* Subtle inset shadow */
+}
+.cell:hover {
+    background-color: var(--dark-bg-secondary); /* Lighten on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), var(--glow-cyan); /* Add glow on hover */
+    z-index: 5; /* Bring to front */
+}
+
+.cell img {
+  width: 65%; height: 65%;
+  object-fit: contain; display: block;
+  pointer-events: none;
+  filter: brightness(1.1) saturate(1.1); /* Make icons slightly brighter */
+}
+
+.cell.shake { animation: shake 0.3s; }
+@keyframes shake { /* Keep shake animation */
+  0% { transform: translateX(0) scale(1.05); } /* Keep scale during shake */
+  25% { transform: translateX(-5px) scale(1.05); }
+  50% { transform: translateX(5px) scale(1.05); }
+  75% { transform: translateX(-5px) scale(1.05); }
+  100% { transform: translateX(0) scale(1.05); }
+}
+
+/* Correct / Wrong indicators */
+.cell.correct::after, .cell.wrong::after {
+  font-size: clamp(18px, 3.5vmin, 28px);
+  position: absolute; top: 3px; right: 3px; z-index: 2;
+  text-shadow: 0 0 5px black; /* Shadow for visibility */
+}
+.cell.correct::after { content: "✔"; color: var(--accent-green); text-shadow: var(--glow-green); }
+.cell.wrong::after { content: "✖"; color: var(--accent-red); text-shadow: var(--glow-red); }
+
+
+/* --- Result Modal --- */
+.result-modal {
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 10, 20, 0.95); /* Darker, less transparent */
+  display: none; justify-content: center; align-items: center;
+  z-index: 999; color: var(--text-light);
+  font-size: clamp(20px, 4.5vmin, 35px);
+  flex-direction: column; gap: 4vh;
+  width: 85%; max-width: 550px; /* Slightly larger max */
+  border-radius: 15px; /* More rounded */
+  padding: 4vh 4vw;
+  text-align: center;
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan), 0 0 30px var(--accent-cyan); /* Stronger glow */
+}
+.result-modal.show { display: flex; }
+
+#result-message {
+    font-weight: 600;
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-cyan);
+}
+#time-taken {
+    font-size: clamp(16px, 3vmin, 24px);
+    /* color: var(--text-medium); */
+    color: var(--text-light);
+  text-shadow: var(--glow-cyan);
+}
+#final-user-dp img { /* Style DP in modal */
+   border: 2px solid var(--accent-magenta);
+   box-shadow: var(--glow-magenta);
+}
+.play-again-btn { /* Specific style for play again button */
+     font-weight: 600;
+}
+
+/* Canvas */
+canvas { /* Keep canvas setup */
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1; pointer-events: none;
+}
+/* Style the drawn path */
+canvas {
+    filter: blur(1px) brightness(1.5); /* Glowing effect for path */
+}
+
+
+/* --- Media Queries (Adjustments for Futuristic Look) --- */
+@media (max-width: 700px), (max-height: 550px) { /* Adjusted height breakpoint slightly */
+
+    .container { padding: 1.5vh 1vw; }
+    #main-title { font-size: clamp(24px, 5vmin, 40px); }
+
+    .profile { gap: 1vh; margin-bottom: 1.5vh; flex-direction: column; align-items: center; }
+    .profile img { width: clamp(55px, 12vmin, 80px); height: clamp(55px, 12vmin, 80px); }
+     #user-details { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 1vh; }
+     #user-details input { width: 80%; max-width: 250px; text-align: center; }
+     .futuristic-btn { /* Adjust button padding/font on mobile */
+         padding: 0.8vh 4vw;
+         font-size: clamp(12px, 2.5vmin, 16px);
+     }
+     .profile .futuristic-btn { width: 60%; max-width: 200px; } /* Make profile buttons wider */
+
+
+    .game-info {
+        width: 100%; max-width: none;
+        margin-left: 0; margin-right: 0;
+        justify-content: space-around; flex-wrap: wrap;
+        min-height: clamp(40px, 7vmin, 60px);
+    }
+     #progress-container { width: 60%; height: clamp(22px, 3.8vmin, 28px); }
+     #progress-text { font-size: clamp(10px, 1.7vmin, 14px); }
+     #timer { width: clamp(40px, 5vmin, 50px); height: clamp(40px, 5vmin, 50px); font-size: clamp(15px, 2vmin, 24px); }
+
+    #encouragement-message {
+        /* Revert to static positioning for simplicity on mobile */
+        position: static; transform: none;
+        order: 2; width: 100%; text-align: center;
+        margin-top: 0.8vh;
+        font-size: clamp(16px, 3vmin, 22px);
+        min-height: 1.2em; /* Reserve space */
+        color: var(--accent-green); /* Keep color */
+        text-shadow: var(--glow-green);
+        /* Ensure opacity transition still works */
+        opacity: 0; transition: opacity 0.3s ease;
+        background-color: transparent; padding: 0;
+    }
+     #encouragement-message.show { opacity: 1; }
+
+
+    .game-board {
+        width: 98%; gap: 0.8vmin; padding: 1.2vmin;
+        grid-template-columns: repeat(6, minmax(35px, 1fr)); /* Adjust min size */
+        grid-template-rows: repeat(6, minmax(35px, 1fr));
+    }
+     .cell:hover { transform: none; box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4); } /* Disable hover scale/glow on mobile */
+     .cell img { width: 70%; height: 70%; }
+
+    .result-modal { font-size: clamp(18px, 4vmin, 30px); width: 90%; gap: 3vh; }
+     #final-user-dp img { width: clamp(35px, 7vmin, 55px) !important; height: clamp(35px, 7vmin, 55px) !important; }
+     .play-again-btn { padding: 1.2vh 5vw; }
+}
