@@ -1,4 +1,4 @@
-# Fruit Match Master 🍎
+# Fruit Match Master 🍎 [Link](https://omshigupta.github.io/FruitMatch/)
 
 This is a personal project I developed to practice building a polished, interactive experience using nothing but **Vanilla JavaScript**. 
 
